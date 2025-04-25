@@ -1,0 +1,520 @@
+@import 'tailwindcss';
+
+@plugin 'tailwindcss-animate';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans: 'Inter', sans-serif;
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary-50: var(--primary-50);
+    --color-primary-100: var(--primary-100);
+    --color-primary-200: var(--primary-200);
+    --color-primary-300: var(--primary-300);
+    --color-primary-400: var(--primary-400);
+    --color-primary-500: var(--primary-500);
+    --color-primary-600: var(--primary-600);
+    --color-primary-700: var(--primary-700);
+    --color-primary-800: var(--primary-800);
+    --color-primary-900: var(--primary-900);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary-50: var(--secondary-50);
+    --color-secondary-100: var(--secondary-100);
+    --color-secondary-200: var(--secondary-200);
+    --color-secondary-300: var(--secondary-300);
+    --color-secondary-400: var(--secondary-400);
+    --color-secondary-500: var(--secondary-500);
+    --color-secondary-600: var(--secondary-600);
+    --color-secondary-700: var(--secondary-700);
+    --color-secondary-800: var(--secondary-800);
+    --color-secondary-900: var(--secondary-900);
+
+    /* Steel colors (metal/industrial) */
+    --color-steel: var(--steel);
+    --color-steel-foreground: var(--steel-foreground);
+    --color-steel-50: var(--steel-50);
+    --color-steel-100: var(--steel-100);
+    --color-steel-200: var(--steel-200);
+    --color-steel-300: var(--steel-300);
+    --color-steel-400: var(--steel-400);
+    --color-steel-500: var(--steel-500);
+    --color-steel-600: var(--steel-600);
+    --color-steel-700: var(--steel-700);
+    --color-steel-800: var(--steel-800);
+    --color-steel-900: var(--steel-900);
+
+    /* Aluminum colors (lighter metal) */
+    --color-aluminum: var(--aluminum);
+    --color-aluminum-foreground: var(--aluminum-foreground);
+    --color-aluminum-50: var(--aluminum-50);
+    --color-aluminum-100: var(--aluminum-100);
+    --color-aluminum-200: var(--aluminum-200);
+    --color-aluminum-300: var(--aluminum-300);
+    --color-aluminum-400: var(--aluminum-400);
+    --color-aluminum-500: var(--aluminum-500);
+    --color-aluminum-600: var(--aluminum-600);
+    --color-aluminum-700: var(--aluminum-700);
+    --color-aluminum-800: var(--aluminum-800);
+    --color-aluminum-900: var(--aluminum-900);
+
+    /* Industrial warning colors */
+    --color-industrial: var(--industrial);
+    --color-industrial-foreground: var(--industrial-foreground);
+    --color-industrial-50: var(--industrial-50);
+    --color-industrial-100: var(--industrial-100);
+    --color-industrial-200: var(--industrial-200);
+    --color-industrial-300: var(--industrial-300);
+    --color-industrial-400: var(--industrial-400);
+    --color-industrial-500: var(--industrial-500);
+    --color-industrial-600: var(--industrial-600);
+    --color-industrial-700: var(--industrial-700);
+    --color-industrial-800: var(--industrial-800);
+    --color-industrial-900: var(--industrial-900);
+
+    /* Technical blue colors */
+    --color-technical: var(--technical);
+    --color-technical-foreground: var(--technical-foreground);
+    --color-technical-50: var(--technical-50);
+    --color-technical-100: var(--technical-100);
+    --color-technical-200: var(--technical-200);
+    --color-technical-300: var(--technical-300);
+    --color-technical-400: var(--technical-400);
+    --color-technical-500: var(--technical-500);
+    --color-technical-600: var(--technical-600);
+    --color-technical-700: var(--technical-700);
+    --color-technical-800: var(--technical-800);
+    --color-technical-900: var(--technical-900);
+
+ /* Neutral colors */
+ --color-neutral: var(--neutral);
+ --color-neutral-foreground: var(--neutral-foreground);
+ --color-neutral-50: var(--neutral-50);
+ --color-neutral-100: var(--neutral-100);
+ --color-neutral-200: var(--neutral-200);
+ --color-neutral-300: var(--neutral-300);
+ --color-neutral-400: var(--neutral-400);
+ --color-neutral-500: var(--neutral-500);
+ --color-neutral-600: var(--neutral-600);
+ --color-neutral-700: var(--neutral-700);
+ --color-neutral-800: var(--neutral-800);
+ --color-neutral-900: var(--neutral-900);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+:root {
+    --topbar-height: 40px;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.577 0.245 27.325);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.87 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --radius: 0.5rem; /* Reduced from 0.625rem for a more industrial look */
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.87 0 0);
+
+    /* Primary colors - Industrial Red */
+    --primary: #d1152d;
+    --primary-foreground: #ffffff;
+    --primary-50: #fef2f3;
+    --primary-100: #fde6e7;
+    --primary-200: #fbd0d4;
+    --primary-300: #f7a9b1;
+    --primary-400: #f27986;
+    --primary-500: #e94c5c;
+    --primary-600: #d1152d;
+    --primary-700: #b01026;
+    --primary-800: #931020;
+    --primary-900: #7c131e;
+
+    /* Secondary colors - Technical Blue */
+    --secondary: #162e86;
+    --secondary-foreground: #ffffff;
+    --secondary-50: #eef3ff;
+    --secondary-100: #e0e9ff;
+    --secondary-200: #c6d6ff;
+    --secondary-300: #a3b9ff;
+    --secondary-400: #7e94fb;
+    --secondary-500: #5e6ff4;
+    --secondary-600: #3e4be9;
+    --secondary-700: #2d37d3;
+    --secondary-800: #2731ab;
+    --secondary-900: #162e86;
+
+    /* Steel colors - Industrial Metal */
+    --steel: #71767c;
+    --steel-foreground: #ffffff;
+    --steel-50: #f5f6f7;
+    --steel-100: #e5e7e9;
+    --steel-200: #cfd3d7;
+    --steel-300: #aeb4ba;
+    --steel-400: #8d959d;
+    --steel-500: #71767c;
+    --steel-600: #5a5f65;
+    --steel-700: #464a4f;
+    --steel-800: #3a3d40;
+    --steel-900: #26282a;
+
+    /* Aluminum colors - Lighter Metal */
+    --aluminum: #d6d8db;
+    --aluminum-foreground: #26282a;
+    --aluminum-50: #fafafa;
+    --aluminum-100: #f2f2f3;
+    --aluminum-200: #e6e8ea;
+    --aluminum-300: #d6d8db;
+    --aluminum-400: #babdc0;
+    --aluminum-500: #9fa3a7;
+    --aluminum-600: #8b8f92;
+    --aluminum-700: #737679;
+    --aluminum-800: #5a5c5e;
+    --aluminum-900: #414243;
+
+    /* Industrial warning colors - Safety Yellow */
+    --industrial: #f3b700;
+    --industrial-foreground: #000000;
+    --industrial-50: #fffaeb;
+    --industrial-100: #fef3c7;
+    --industrial-200: #fde68a;
+    --industrial-300: #fcd34d;
+    --industrial-400: #f9c22d;
+    --industrial-500: #f3b700;
+    --industrial-600: #e19300;
+    --industrial-700: #b06800;
+    --industrial-800: #8c4e00;
+    --industrial-900: #663c00;
+
+    /* Technical blue colors - Engineering/Blueprint */
+    --technical: #0074d9;
+    --technical-foreground: #ffffff;
+    --technical-50: #f0f9ff;
+    --technical-100: #e0f2fe;
+    --technical-200: #b9e6fe;
+    --technical-300: #7cd4fd;
+    --technical-400: #36bffa;
+    --technical-500: #0ca5e9;
+    --technical-600: #0074d9;
+    --technical-700: #0059a6;
+    --technical-800: #00448a;
+    --technical-900: #003972;
+    --clip-angle: 50%;
+
+    --neutral: #6b7280;
+    --neutral-foreground: #ffffff;
+    --neutral-50: #f9fafb;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e5e7eb;
+    --neutral-300: #d1d5db;
+    --neutral-400: #9ca3af;
+    --neutral-500: #6b7280;
+    --neutral-600: #4b5563;
+    --neutral-700: #374151;
+    --neutral-800: #1f2937;
+    --neutral-900: #111827;
+}
+
+.clip-diagonal-tr {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--clip-angle) 100%);
+}
+
+.clip-diagonal-bl {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 var(--clip-angle));
+}
+.clip-diagonal-th {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.145 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.145 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.396 0.141 25.723);
+    --destructive-foreground: oklch(0.637 0.237 25.331);
+    --border: oklch(0.269 0 0);
+    --input: oklch(0.269 0 0);
+    --ring: oklch(0.439 0 0);
+    --chart-1: oklch(0.488 0.243 264.376);
+    --chart-2: oklch(0.696 0.17 162.48);
+    --chart-3: oklch(0.769 0.188 70.08);
+    --chart-4: oklch(0.627 0.265 303.9);
+    --chart-5: oklch(0.645 0.246 16.439);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.985 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(0.269 0 0);
+    --sidebar-ring: oklch(0.439 0 0);
+
+    /* Primary colors for dark mode - Deeper Industrial Red */
+    --primary: #b80726;
+    --primary-foreground: #ffffff;
+    --primary-50: #fef2f3;
+    --primary-100: #fde6e7;
+    --primary-200: #fbd0d4;
+    --primary-300: #f7a9b1;
+    --primary-400: #f27986;
+    --primary-500: #e94c5c;
+    --primary-600: #d1152d;
+    --primary-700: #b80726;
+    --primary-800: #970921;
+    --primary-900: #800b20;
+
+    /* Secondary colors for dark mode - Deeper Technical Blue */
+    --secondary: #162e86;
+    --secondary-foreground: #ffffff;
+    --secondary-50: #eef3ff;
+    --secondary-100: #e0e9ff;
+    --secondary-200: #c6d6ff;
+    --secondary-300: #a3b9ff;
+    --secondary-400: #7e94fb;
+    --secondary-500: #5e6ff4;
+    --secondary-600: #3e4be9;
+    --secondary-700: #2d37d3;
+    --secondary-800: #2731ab;
+    --secondary-900: #162e86;
+
+    /* Steel colors for dark mode - Darker Metal */
+    --steel: #5a5f65;
+    --steel-foreground: #ffffff;
+    --steel-50: #f5f6f7;
+    --steel-100: #e5e7e9;
+    --steel-200: #cfd3d7;
+    --steel-300: #aeb4ba;
+    --steel-400: #8d959d;
+    --steel-500: #71767c;
+    --steel-600: #5a5f65;
+    --steel-700: #464a4f;
+    --steel-800: #3a3d40;
+    --steel-900: #26282a;
+
+    /* Aluminum colors for dark mode - Darker Aluminum */
+    --aluminum: #8b8f92;
+    --aluminum-foreground: #ffffff;
+    --aluminum-50: #fafafa;
+    --aluminum-100: #f2f2f3;
+    --aluminum-200: #e6e8ea;
+    --aluminum-300: #d6d8db;
+    --aluminum-400: #babdc0;
+    --aluminum-500: #9fa3a7;
+    --aluminum-600: #8b8f92;
+    --aluminum-700: #737679;
+    --aluminum-800: #5a5c5e;
+    --aluminum-900: #414243;
+
+    /* Industrial warning colors for dark mode - Brighter Safety Yellow */
+    --industrial: #e19300;
+    --industrial-foreground: #000000;
+    --industrial-50: #fffaeb;
+    --industrial-100: #fef3c7;
+    --industrial-200: #fde68a;
+    --industrial-300: #fcd34d;
+    --industrial-400: #f9c22d;
+    --industrial-500: #f3b700;
+    --industrial-600: #e19300;
+    --industrial-700: #b06800;
+    --industrial-800: #8c4e00;
+    --industrial-900: #663c00;
+
+    /* Technical blue colors for dark mode - Brighter Blueprint Blue */
+    --technical: #0059a6;
+    --technical-foreground: #ffffff;
+    --technical-50: #f0f9ff;
+    --technical-100: #e0f2fe;
+    --technical-200: #b9e6fe;
+    --technical-300: #7cd4fd;
+    --technical-400: #36bffa;
+    --technical-500: #0ca5e9;
+    --technical-600: #0074d9;
+    --technical-700: #0059a6;
+    --technical-800: #00448a;
+    --technical-900: #003972;
+    --neutral: #6b7280;
+    --neutral-foreground: #ffffff;
+    --neutral-50: #f9fafb;
+    --neutral-100: #f3f4f6;
+    --neutral-200: #e5e7eb;
+    --neutral-300: #d1d5db;
+    --neutral-400: #9ca3af;
+    --neutral-500: #6b7280;
+    --neutral-600: #4b5563;
+    --neutral-700: #374151;
+    --neutral-800: #1f2937;
+    --neutral-900: #111827;
+}
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
+.topbar {
+    background-color: #333;
+    color: white;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+/* Header styling */
+.header {
+    background: linear-gradient(to right, #f7f7f7, #ffffff);
+    border-bottom: 1px solid #e5e5e5;
+    height: 80px;
+    width: 100%;
+    z-index: 50;
+    transition: all 0.3s ease;
+}
+
+/* This creates the sticky header effect */
+.header.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Content area */
+.content {
+    padding: 20px;
+    height: 1500px; /* Just for demonstration */
+    background-color: #f9f9f9;
+}
+
+/* This spacer only appears when header is sticky */
+.header-spacer {
+    height: 80px;
+    display: none;
+}
+
+.header-spacer.active {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    /* Add hover styles for desktop */
+    .group:hover .group-hover\:block {
+      display: block;
+    }
+  }
+  @keyframes scan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(300%); }
+  }
+  .animate-scan {
+    animation: scan 8s ease-in-out infinite;
+  }
+  @keyframes scan {
+    0% { top: 0; }
+    100% { top: 100%; }
+  }
+  .scanning-line {
+    animation: scan 5s linear infinite;
+  }
+  .animate-scan {
+    animation: scan 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0%); }
+  }
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+  }
