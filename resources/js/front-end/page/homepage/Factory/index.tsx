@@ -4,9 +4,10 @@ import SectionHeader from '@/front-end/components/ui/Section/SectionHeader';
 import Title from '@/front-end/components/ui/Title/Title';
 import VideoModal from '@/front-end/components/ui/Video/VideoModal';
 import { Database, FileText, Phone, Play, Server, Terminal } from 'lucide-react';
-import React, { useEffect, useMemo, useState } from 'react';
+import React from 'react';
 import MetricCarousel from './shared/MetricCarousel';
 import Specifications from './shared/Specifications';
+import { usePromo } from '@/hooks/use-promo';
 
 const BUTTON_VARIANT: { PRIMARY: ButtonVariant; SECONDARY: ButtonVariant; OUTLINE: ButtonVariant } = {
     PRIMARY: 'primary',
@@ -15,21 +16,7 @@ const BUTTON_VARIANT: { PRIMARY: ButtonVariant; SECONDARY: ButtonVariant; OUTLIN
 };
 
 const Factory = () => {
-    const [playPromoVideo, setPlayPromoVideo] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [isScanning, setIsScanning] = useState(true);
-    const currentYear = useMemo(() => new Date().getFullYear(), []);
-    useEffect(() => {
-        setIsLoaded(true);
-        const scanInterval = setInterval(() => {
-            setIsScanning((prev) => !prev);
-        }, 5000);
-
-        return () => {
-            clearInterval(scanInterval);
-        };
-    }, []);
-
+    const{ setPlayPromoVideo, playPromoVideo,  isLoaded, isScanning, currentYear} = usePromo();
     return (
         <section id="about" className="relative overflow-hidden bg-neutral-100 py-16 md:py-20">
             {/* Technical background patterns */}

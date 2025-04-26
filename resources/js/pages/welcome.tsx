@@ -5,13 +5,14 @@ import Certifications from '@/front-end/page/homepage/Certifications';
 import Factory from '@/front-end/page/homepage/Factory';
 import GlobalReach from '@/front-end/page/homepage/GlobalReach';
 import IndustriesSection from '@/front-end/page/homepage/IndustriesSection';
-import ProductsSection from '@/front-end/page/homepage/MetalsSection';
 import News from '@/front-end/page/homepage/New';
 import NewsResources from '@/front-end/page/homepage/NewsResources';
-import OneStopService from '@/front-end/page/homepage/OneStopService';
+import Products from '@/front-end/page/homepage/Products';
+import Services from '@/front-end/page/homepage/Services';
 
 import { type SharedData } from '@/types';
 import { usePage } from '@inertiajs/react';
+
 
 export default function Welcome() {
     const { auth } = usePage<SharedData>().props;
@@ -23,12 +24,12 @@ export default function Welcome() {
                 <Factory />
                 <NewsResources />
                 <IndustriesSection />
-                <ProductsSection />
+                <Products />
                 <CallToAction />
-                <OneStopService />
+                <Services />
                 <Certifications />
                 <GlobalReach />
-                <News />
+                {/* <News /> */}
             </Layout>
         </>
     );

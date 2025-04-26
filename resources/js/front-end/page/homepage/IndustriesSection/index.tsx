@@ -1,11 +1,10 @@
+import Button, { ButtonVariant } from '@/front-end/components/ui/Button';
 import SectionFooter from '@/front-end/components/ui/Section/SectionFooter';
 import SectionHeader from '@/front-end/components/ui/Section/SectionHeader';
 import Title from '@/front-end/components/ui/Title/Title';
-import { Link } from '@inertiajs/react';
-import { ExternalLink, Factory, Layers, Terminal } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { ExternalLink, Factory, Terminal } from 'lucide-react';
 import IndustryCard from './shared/IndustryCard';
-import Button, { ButtonVariant } from '@/front-end/components/ui/Button';
+import { usePromo } from '@/hooks/use-promo';
 
 // Define TypeScript interfaces
 interface Industry {
@@ -27,11 +26,7 @@ const BUTTON_VARIANT: { SECONDARY: ButtonVariant } = {
 };
 
 export default function IndustriesSection({ industries }: IndustriesSectionProps) {
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [activeIndex, setActiveIndex] = useState(0);
-    // Current year for technical reference codes
-    const currentYear = new Date().getFullYear();
-    // Default industries data if not provided via props
+    const {isLoaded, activeIndex} = usePromo();
     const defaultIndustries: Industry[] = [
         {
             name: 'AUTOMOTIVE',
@@ -87,22 +82,8 @@ export default function IndustriesSection({ industries }: IndustriesSectionProps
             compatibility: 94,
         },
     ];
-
     // Use provided industries or default if not available
     const industryItems: Industry[] = industries || defaultIndustries;
-
-    useEffect(() => {
-        setIsLoaded(true);
-
-        // Auto-rotate active industry
-        const interval = setInterval(() => {
-            setActiveIndex((prev) => (prev + 1) % industryItems.length);
-        }, 8000);
-
-        return () => {
-            clearInterval(interval);
-        };
-    }, []);
 
     return (
         <section className="relative overflow-hidden bg-neutral-100 py-16 md:py-20">
@@ -204,9 +185,8 @@ export default function IndustriesSection({ industries }: IndustriesSectionProps
 
                 {/* Technical style CTA */}
                 <div className="text-center">
-
                     <Button variant={BUTTON_VARIANT.SECONDARY} leftIcon={ExternalLink}>
-                    View All Industry Applications
+                        View All Industry Applications
                     </Button>
                 </div>
             </div>
